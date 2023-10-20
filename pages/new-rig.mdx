@@ -1,0 +1,139 @@
+import { Steps } from "nextra-theme-docs";
+
+# Setting up a New Rig
+
+Now that you've got Luminos running, let's connect Luminos to hardware.
+
+We'll modify the `Example`.
+
+<Steps>
+### Edit the initializer
+In MATLAB, open the `Example.json` file by running
+```matlab
+edit Example.json
+```
+Edit the file to use your hardware. Feel free to add only one device at a time, and we'll test that device in the next step.
+
+```json filename="Example.json"
+{
+  "objectType": "Rig_Initializer",
+  "dataDirectory": "C:\\Users\\Labmember\\Data",
+  "devices": [
+    {
+      "deviceType": "DAQ",
+      "name": "Dev1",
+      "defaultClock": "Dev1/PFI0",
+      "default_trigger": "Dev1/PFI12"
+    },
+    {
+      "deviceType": "Camera",
+      "name": "Orca Flash",
+      "trigger": "Dev1/port0/line7",
+      "clock": "",
+      "hsync_rate": 100000,
+      "vsync": "Dev1/Ctr1",
+      "daqTrigCounter": "Dev1/Ctr0",
+      "type": 1,
+      "rdrivemode": 0,
+      "cam_id": "S/N: 002312",
+      "virtualSensorSize": 2048
+    },
+    {
+      "deviceType": "NI_DAQ_Modulator",
+      "name": "mod488",
+      "port": "Dev1/ao1",
+
+      "min": 0,
+      "max": 5
+    },
+    {
+      "deviceType": "NI_DAQ_Shutter",
+      "name": "shutter488",
+      "port": "Dev1/port0/line1"
+    },
+    {
+      "deviceType": "OBIS_Laser",
+      "name": "488",
+      "COMPORT": "COM18",
+      "maxPower": 0.055,
+      "Wavelength": 488
+    },
+    {
+      "deviceType": "NI_DAQ_Modulator",
+      "name": "mod488",
+      "port": "Dev1/ao2",
+      "min": 0,
+      "max": 5
+    },
+    {
+      "deviceType": "Scientifica_Stage_Controller",
+      "name": "ScientificaStage",
+      "COMPORT": "COM6",
+      "microstep_size": 1,
+      "driver": "Motion2"
+    },
+    {
+      "deviceType": "ALP_DMD",
+      "name": "DMD_Blue",
+      "api_version": "alpV42x64",
+      "frac_calpoints": [
+        [0.55, 0.35],
+        [0.3, 0.35],
+        [0.3, 0.45]
+      ],
+      "calPS": 5,
+      "debug_mode": 0,
+      "Alignment_Pattern_Stack": []
+    }
+  ]
+}
+```
+
+To find all the devices that Luminos supports, see the [Supported Hardware](./supported-devices) page. To find all the properties
+that each device supports, you can open the Initializer file for that device (e.g. `DAQ_Initializer.m`).
+
+### Add device drivers
+
+- **Hamamatsu:** If you're using a Hamamatsu camera, you'll need to download both [DCAM-SDK4 and DCIMG-SDK on their website](https://dcam-api.com/sdk-download/).
+  Create an account on the Hamamatsu website if you don't already have one.
+  Unzip the folders and place them in `luminos-microscopy/lib/Luminos_VS/inc/`. You should have the following folders:
+
+```
+luminos-microscopy/lib/Luminos_VS/inc/dcamsdk4
+luminos-microscopy/lib/Luminos_VS/inc/dcimgsdk
+```
+
+- **Andor:** If you're using an Andor camera, you'll need to download the [Andor SDK3 on their website](#). Unzip the folder and place it in `luminos-microscopy/lib/Luminos_VS/inc/`. You should have the following folder:
+
+```
+luminos-microscopy/lib/Luminos_VS/inc/Andor_SDK
+```
+
+After you've added the drivers, you'll need to compile the C++ code. To do this, run in MATLAB
+
+```matlab
+build
+```
+
+### Testing the hardware
+
+Now that you've added your hardware to the initializer, let's test it out. To test the camera, run in MATLAB
+
+```
+cam = Standalone_Device("Example", "Camera");
+```
+
+Your camera should hopefully launch without errors! Now try the other devices. If you run into any issues, please
+let us know on the [GitHub Issues](https://github.com/adamcohenlab/luminos-microscopy/issues).
+
+### Running the full app
+
+To run the full application, run in MATLAB
+
+```matlab
+app = Example_App();
+```
+
+And there you have it! You've got a working app. You can follow the next tutorial to learn how to customize the user interface.
+
+</Steps>

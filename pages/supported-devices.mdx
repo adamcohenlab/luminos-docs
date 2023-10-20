@@ -1,0 +1,64 @@
+# Supported Hardware
+
+> You can write custom Matlab or C++ drivers for any hardware that is not currently supported.
+
+#### Operating systems
+
+- Windows. Tested on Windows 11.
+
+#### Cameras
+
+- DCAM: [Hamamatsu](https://www.hamamatsu.com/eu/en/product/cameras.html) CMOS camears. Tested with Orca Flash 4.0 V2 and Orca Fusion.
+
+#### DAQs
+
+- National Instruments DAQs that have PCIes.
+
+#### Digital micromirror devices
+
+- ALP 4.1, 4.2, and 4.3: [Vialux](https://www.vialux.de/en/v-modules.html) DMDs. Tested with the Vialux V-7000.
+- Texas Instruments DMDs. Tested with the DLP LightCrafter 4500.
+
+#### Galvos (Experimental)
+
+> Galvo support is an experimental feature and still under development.
+
+- It should work with any galvo that hooks up to a DAQ by feeding x and y positions to two analog input ports
+  and sending x and y waveforms via analog output ports. Tested with the Cambridge Technology 6215H galvos, and the Thorlabs GVS galvos.
+
+#### Light sources
+
+> Having software control of the laser is not crucial for using Luminos. You can turn off/on the lasers
+> in hardware or with the vendor's software, and use shutters and modulators in Luminos.
+
+- Coherent OBIS lasers
+- Cobolt lasers. Tested with Cobolt 04-01 and 05-01 Series.
+- Spectra-Physics DeepSee lasers
+- Amplitude Mango OPA
+
+#### Stage controllers and other motion controllers
+
+- Ludl MAC5000 stage controller
+- Scientifica SliceScope stage controller
+- Sutter MPC200 stage controller
+- Thorlabs DCServo TCube
+
+#### Spatial light modulators
+
+- Meadowlark SLMs
+
+#### Motorized filter wheels
+
+- ASI filter wheel. Tested on the ASI FW1000.
+- Optec high speed filter wheel.
+- Thorlabs motorized filter wheels
+
+#### Modulators
+
+- G&H 8-channel acousto-optic tunable filter controller
+- Thorlabs PRM1 motorized rotation mount
+- Any Modulator that takes analog control input from a DAQ
+
+#### Shutters
+
+- Any shutter that connects to the NI DAQ

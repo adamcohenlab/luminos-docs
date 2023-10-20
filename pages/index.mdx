@@ -1,0 +1,60 @@
+# Luminos: Bi-directional microscopy software
+
+import Cards from "../components/cards";
+
+![](/luminos.png)
+
+Luminos is a MATLAB library for **bi-directional microscopy**: simultaneous high-speed imaging and patterned optical stimulation.
+
+### Core features
+
+- Built-in functions for stimulation via DMD, or galvo targeting, and detection via camera or point-scanning (confocal or 2P) techniques
+- Simultaneous use of multiple stimulation and/or imaging modalities
+- Complex experimental protocols, e.g. integration of animal behavior, targeted optogenetic stimulation, voltage imaging, and electrophysiology
+- Maps all stimulation and recording devices to a single spatial and temporal coordinate system with sub-pixel and sub-frame registration accuracy.
+- Saves comprehensive metadata on instrument state with every acquisition
+
+### Architecture
+
+- A modular Matlab core that allows for easy integration of arbitrary devices
+- Intuitive and customizable UI written in JavaScript with [React](https://react.dev/)
+- Low-level C++ code for high-speed data streaming and synchronization
+
+### Hardware requirements
+
+See [supported hardware](/supported-devices).
+
+### Applications
+
+Here are some cool things you can do.
+
+<Cards>
+  <Cards.Block>
+    <Cards.Image src="/opto-dendrites.gif" />
+    <div>
+      Simultaneous targeted optogenetic stimulation and high-speed voltage
+      imaging
+      ([paper](https://www.biorxiv.org/content/10.1101/2023.06.02.543490v1))
+    </div>
+  </Cards.Block>
+  <Cards.Block>
+    <Cards.Image src="/heartbeats.gif" />
+    <div>
+      Calcium imaging of the first zebrafish heartbeats
+      ([paper](https://www.biorxiv.org/content/10.1101/2022.12.06.519309v1))
+    </div>
+  </Cards.Block>
+  <Cards.Block>
+    <Cards.Image src="/OptoNodal.png" />
+    <div>
+      Optogenetic patterning of morphogen gradients in zebrafish embryos
+    </div>
+  </Cards.Block>
+  <Cards.Block>
+    <Cards.Image src="/OPS.png" />
+    <div>
+      Optical pooled screens via targeted photo-tagging of selected cells
+      ([paper](https://doi.org/10.1038/s41592-022-01743-5))
+    </div>
+  </Cards.Block>
+</Cards>

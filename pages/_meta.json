@@ -1,0 +1,14 @@
+{
+  "index": "Introduction",
+  "supported-devices": "Supported Hardware",
+  "getting-started": "Getting Started",
+  "new-rig": "Setting up a New Rig",
+  "customize-ui": "Customize the User Interface",
+  "viewing-data" "Viewing the data",
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "mailto:rhotter@fas.harvard.edu",
+    "newWindow": true
+  }
+}

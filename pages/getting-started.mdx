@@ -1,0 +1,57 @@
+# Getting Started
+
+import { Steps } from "nextra-theme-docs";
+
+<Steps>
+
+### Install prerequisites
+
+Download [NI-DAQmx](https://www.ni.com/en-us/support/downloads/drivers/download.ni-daq-mx.html#480879), [Node.js](https://nodejs.org/en/download/), and [Visual Studio](https://visualstudio.microsoft.com/).
+
+Make sure you're using MATLAB 2021a or a newer version.
+
+Install all the required MATLAB toolboxes:
+
+- Instrument Control Toolbox
+- Optimization Toolbox
+- Image Processing Toolbox
+- Statistics and Machine Learning Toolbox
+
+### Clone the repo
+
+Run the following in your terminal
+
+```bash copy
+git clone https://github.com/adamcohenlab/luminos-microscopy.git
+```
+
+### Build the libraries
+
+Open the `luminos` folder in Matlab, and build the C and JavaScript libraries by running the following in Matlab
+
+```matlab copy
+build
+```
+
+### Create a NI DAQ simulator
+
+Follow the [quick instructions here](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA03q000000x0PxCAI&l=en-US) to create a simulated NI DAQ. You can select the USB X Series 6363 DAQ. Alternatively, if you have an NI DAQ, plug it in.
+
+Take note of the device name, which should be something like `Dev1`.
+
+### Edit the initializer
+
+Open the `Simulator.json` file (you can do this in MATLAB with `edit Simulator.json`). This file contains all the configuration data for your application. Replace all instances of `Dev1`
+with the name of your device.
+
+### Run the simulator app
+
+Run the app in Matlab:
+
+```matlab copy
+app = Simulator_App();
+```
+
+There you have it! You should see a simulated camera with stripes, and luminos in the browser. Follow the next tutorial to hook up your hardware.
+
+</Steps>
