@@ -13,10 +13,12 @@ Cards.Block = ({ children }) => (
 Cards.Image = ({ src, alt }) => (
   <div className="relative h-32 overflow-hidden">
     <Image
+      priority
       src={src}
       alt={alt}
       fill={true} // This will make the image fill its parent's dimensions
       className="object-cover object-center"
+      sizes="100vw"
     />
   </div>
 );
