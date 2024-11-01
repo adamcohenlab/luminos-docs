@@ -18,6 +18,14 @@ Edit the file to use your hardware. Feel free to add only one device at a time, 
 {
   "objectType": "Rig_Initializer",
   "dataDirectory": "C:\\Users\\Labmember\\Data",
+  "tabs": [
+    "Main",
+    {
+      "type": "DMD",
+      "names": "DMD (shared)"
+    },
+    "Waveforms"
+  ],
   "devices": [
     {
       "deviceType": "DAQ",
@@ -96,18 +104,28 @@ that each device supports, you can open the Initializer file for that device (e.
 
 - **Hamamatsu:** If you're using a Hamamatsu camera, you'll need to download both [DCAM-SDK4 and DCIMG-SDK on their website](https://dcam-api.com/sdk-download/).
   Create an account on the Hamamatsu website if you don't already have one.
-  Unzip the folders and place them in `luminos-microscopy/lib/Luminos_VS/inc/`. You should have the following folders:
+  Unzip the folders and place them in `luminos-microscopy/lib/Luminos_VS/inc/custom/`. You should have the following folders:
 
 ```
-luminos-microscopy/lib/Luminos_VS/inc/dcamsdk4
-luminos-microscopy/lib/Luminos_VS/inc/dcimgsdk
+luminos-microscopy/lib/Luminos_VS/inc/custom/dcamsdk4
+luminos-microscopy/lib/Luminos_VS/inc/custom/dcimgsdk
 ```
 
-- **Andor:** If you're using an Andor camera, you'll need to download the [Andor SDK3 on their website](#). Unzip the folder and place it in `luminos-microscopy/lib/Luminos_VS/inc/`. You should have the following folder:
+- **Andor:** If you're using an Andor camera, you'll need to download the [Andor SDK3 on their website](#). Unzip the folder and place it in `luminos-microscopy/lib/Luminos_VS/inc/custom/`. You should have the following folder:
 
 ```
-luminos-microscopy/lib/Luminos_VS/inc/Andor_SDK
+luminos-microscopy/lib/Luminos_VS/inc/custom/Andor_SDK
 ```
+
+- **Kinetix:** If you're using an Teledyne Kinetix camera, you'll need to download the [PVCAM SDK on their website](https://www.teledynevisionsolutions.com/products/pvcam-sdk-amp-driver/?model=PVCAM-SDK). Find the files **master.h**, **pvcam.h** and **version.h** (should be in 'PVCAM/inc') and place it in `luminos-microscopy/lib/Luminos_VS/inc/custom/PVCAM/inc`. Then add the library **pvcam64.lib** (should be in 'PVCAM/lib') to the folder `luminos-microscopy/lib/Luminos_VS/inc/custom/PVCAM/lib` You should have the following folders:
+
+```
+luminos-microscopy/lib/Luminos_VS/inc/custom/PVCAM/inc containing **master.h**, **pvcam.h** and **version.h**
+and 
+luminos-microscopy/lib/Luminos_VS/inc/custom/PVCAM/lib containing **pvcam64.lib**
+```
+
+Luminos will check for drivers for each of these cameras in the specified location and enable the use of the camera types it finds there.
 
 After you've added the drivers, you'll need to compile the C++ code. To do this, run in MATLAB
 
