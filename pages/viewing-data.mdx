@@ -4,3 +4,8 @@
 [mov, avgImg, DeviceData] = Extract_Mov('path/to/data/folder');
 imagesc(avgImg);
 ```
+
+The camera data will be saved to 'frames1.bin', 'frames2.bin' for the second camera etc. 
+All other experimental parameters, including input and output waveforms, DMD patterns, etc. will be present in 'output_data.mat'.
+Note that various class definitions from 'luminos\src\Devices\DAQ\NI_DAQ' need to be present in the MATLAB path in order to 
+properly view and plot the DAQ waveforms.
