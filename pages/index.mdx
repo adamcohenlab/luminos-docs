@@ -2,9 +2,26 @@
 
 import Cards from "../components/cards";
 
-![](/luminos.png)
+![](/main-image-v0.4.png)
 
 Luminos is a MATLAB library for **bi-directional microscopy**: simultaneous high-speed imaging and patterned optical stimulation.
+
+### New features in v0.4 (Updated 2/14/25):
+
+- Improved DMD calibration using AprilTags, select between different patterns and transforms
+- Calibrations fully agnostic to ROI or Binning
+- Rotate or Flip Camera FOV
+- Camera ROI option centered with offset (define midpoint and height/width)
+- Real time pixel brightness histogram and optional histogram equalization
+- Multi-Round acquisition and meta-experiments (for Standard acquisition, Snaps, Waveform only, Hadamard or HiLo)
+- Autofocus using motorized z-stage or xyz-stage
+- Automated setup of z-stacks, multiwell plate acquisitions etc. in GUI, compatible with autosampler
+- ROI brightness plotter support for multiple cameras
+- Distance measurements in live stream and DMD circle drawing in pixels or absolute units (um,mm,cm)
+- Button for aborting running acquisition
+- Toggle for blanking screen during acquisition
+- Flexible trigger setup using non-PFI DO, PFI-DO or CTR
+- New User Manual on Luminos Website
 
 ### Core features
 
